@@ -24,7 +24,7 @@ class Link(models.Model):
         (1, 'GMAPS'),
         (2, 'FACEBOOK'),
         (3, 'WEBSITE'),
-        (4, 'FOURSQUARE')
+        (4, 'FOURSQUARE'),
         (5, 'YELP'),
     )
     type = models.IntegerField(choices=LINK_TYPES)
