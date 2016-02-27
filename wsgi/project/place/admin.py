@@ -9,7 +9,7 @@ class LinkAdmin(admin.ModelAdmin):
 	list_display = ('id', 'type', 'url', 'place')
 	list_filter = ('type',)
 
-class ChoiceLink(admin.ModelAdmin):
+class ChoiceLink(admin.StackedInline):
 	model = Link
 	extra = 3
 
