@@ -31,4 +31,4 @@ class Link(models.Model):
     place = models.ForeignKey(Place)
 
     def __unicode__(self):
-        return "%s" % self.category
+        return "%s" % self.type
