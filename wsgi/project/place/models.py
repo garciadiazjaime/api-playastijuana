@@ -21,10 +21,11 @@ class Place(models.Model):
 
 class Link(models.Model):
     LINK_TYPES =(
-        (1, 'WEBSITE'),
-        (2, 'GMAPS'),
-        (3, 'FACEBOOK'),
-        (4, 'YELP'),
+        (1, 'GMAPS'),
+        (2, 'FACEBOOK'),
+        (3, 'WEBSITE'),
+        (4, 'FOURSQUARE')
+        (5, 'YELP'),
     )
     type = models.IntegerField(choices=LINK_TYPES)
     url = models.URLField(max_length=500)
