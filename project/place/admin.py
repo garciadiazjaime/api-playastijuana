@@ -6,7 +6,7 @@ class CategoryAdmin(admin.ModelAdmin):
 	list_display = ('id', 'name')
 
 class PlaceAdmin(admin.ModelAdmin):
-	list_display = ('id', 'code', 'name', 'latitud', 'longitude')
+	list_display = ('id', 'code', 'name', 'latitud', 'longitude', 'status')
 	search_fields = ['code', 'name']
 
 class LinkAdmin(admin.ModelAdmin):
