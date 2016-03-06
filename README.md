@@ -20,7 +20,7 @@ GUI - Admin
 http://127.0.0.1:8000/admin
 
 DB Setup
-`psql -c create database `
+`psql -c create database playastijuana -U postgres`
 `python manage.py migrate`
 `python manage.py createsuperuser` (this is the user for access the admin, feel free to type anything)
 `python manage.py loaddata fixtures.json` (warnings are OK)
