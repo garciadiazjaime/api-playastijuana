@@ -23,10 +23,10 @@ class Place(models.Model):
     longitude = models.CharField(max_length=120)
     code = models.CharField(max_length=120, blank=True, null=True)
     categories = models.ManyToManyField(Category, blank=True, null=True)
-    status = models.IntegerField(choices=STATUS_TYPES, default=1)
+    status = models.IntegerField(choices=STATUS_TYPES, default=1, blank=True, null=True)
 
     def __unicode__(self):
-		return "%s - %s" % (self.name)
+		return "%s" % (self.name)
 
 class Link(models.Model):
     LINK_TYPES = (
