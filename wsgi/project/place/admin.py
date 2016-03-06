@@ -14,7 +14,7 @@ class ChoiceLink(admin.StackedInline):
 	extra = 3
 
 class PlaceAdmin(admin.ModelAdmin):
-	list_display = ('id', 'code', 'name', 'latitud', 'longitude')
+	list_display = ('id', 'code', 'name', 'latitud', 'longitude', 'status')
 	search_fields = ['code', 'name']
 	inlines = [ChoiceLink]
 
