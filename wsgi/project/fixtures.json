@@ -1,0 +1,21 @@
+[{
+    "model": "place.place",
+    "pk": 1,
+    "fields": {
+      "name": "5 Hermanos",
+      "latitud": "32.5126267",
+      "longitude": "-117.1200228",
+      "code": "",
+      "categories": []
+    }
+  }, {
+    "model": "place.place",
+    "pk": 2,
+    "fields": {
+      "name": "7 Eleven",
+      "latitud": "32.5306814",
+      "longitude": "-117.122861",
+      "code": "",
+      "categories": []
+    }
+  }]
