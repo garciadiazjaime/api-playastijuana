@@ -10,7 +10,7 @@ class Category(models.Model):
         return "%s" % (self.name)
 
 class Place(models.Model):
-    STATUS_TYPES = (
+    STATUS_CHOICES = (
         (1, 'CREATED'),
         (2, 'GMAPS_VERIFIED'),
         (3, 'REAL_VERIFIED'),
@@ -22,21 +22,33 @@ class Place(models.Model):
     latitud = models.CharField(max_length=120)
     longitude = models.CharField(max_length=120)
     code = models.CharField(max_length=120, blank=True, null=True)
-    categories = models.ManyToManyField(Category, blank=True, null=True)
-    status = models.IntegerField(choices=STATUS_TYPES, default=1, blank=True, null=True)
+    categories = models.ManyToManyField(Category)
+    status = models.IntegerField(choices=STATUS_CHOICES, default=1, blank=True, null=True)
 
     def __unicode__(self):
 		return "%s" % (self.name)
 
+class Image(models.Model):
+    TYPE_CHOICES = (
+        ('COVER', 'COVER'),
+        ('BANNER', 'BANNER'),
+    )
+    url = models.URLField(max_length=500, default='')
+    place = models.ForeignKey(Place, default='')
+    type = models.CharField(choices=TYPE_CHOICES, default='COVER', max_length=20)
+
+    def __unicode__(self):
+        return "%s" % self.url
+
 class Link(models.Model):
-    LINK_TYPES = (
+    LINK_CHOICES = (
         (1, 'GMAPS'),
         (2, 'FACEBOOK'),
         (3, 'WEBSITE'),
         (4, 'FOURSQUARE'),
         (5, 'YELP'),
     )
-    type = models.IntegerField(choices=LINK_TYPES)
+    type = models.IntegerField(choices=LINK_CHOICES)
     url = models.URLField(max_length=500)
     place = models.ForeignKey(Place)
 
