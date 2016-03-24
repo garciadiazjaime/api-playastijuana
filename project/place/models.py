@@ -22,11 +22,18 @@ class Place(models.Model):
     latitud = models.CharField(max_length=120)
     longitude = models.CharField(max_length=120)
     code = models.CharField(max_length=120, blank=True, null=True)
-    categories = models.ManyToManyField(Category, blank=True, null=True)
+    categories = models.ManyToManyField(Category)
     status = models.IntegerField(choices=STATUS_TYPES, default=1, blank=True, null=True)
 
     def __unicode__(self):
 		return "%s" % (self.name)
+
+class Image(models.Model):
+    url = models.URLField(max_length=500, default='')
+    place = models.ForeignKey(Place, default='')
+
+    def __unicode__(self):
+        return "%s" % self.url
 
 class Link(models.Model):
     LINK_TYPES = (
