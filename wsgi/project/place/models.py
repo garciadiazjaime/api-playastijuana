@@ -42,15 +42,15 @@ class Image(models.Model):
 
 class Link(models.Model):
     LINK_CHOICES = (
-        (1, 'GMAPS'),
-        (2, 'FACEBOOK'),
-        (3, 'WEBSITE'),
-        (4, 'FOURSQUARE'),
-        (5, 'YELP'),
+        ('GMAPS', 'GMAPS'),
+        ('FACEBOOK', 'FACEBOOK'),
+        ('WEBSITE', 'WEBSITE'),
+        ('FOURSQUARE', 'FOURSQUARE'),
+        ('YELP', 'YELP'),
     )
-    type = models.IntegerField(choices=LINK_CHOICES)
     url = models.URLField(max_length=500)
-    place = models.ForeignKey(Place)
+    place = models.ForeignKey(Place, default='')
+    type = models.CharField(choices=LINK_CHOICES, default='GMAPS', max_length=20)
 
     def __unicode__(self):
-        return "%s" % self.type
+        return "%s" % self.url
