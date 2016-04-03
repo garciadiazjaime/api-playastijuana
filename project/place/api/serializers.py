@@ -8,7 +8,8 @@ class CategorySerializer(serializers.HyperlinkedModelSerializer):
     model = Category
     fields = ('id', 'name')
 
-class PlaceSerializer(serializers.HyperlinkedModelSerializer):
-	class Meta:
-		model = Place
-		fields = ('id', 'name', 'latitud', 'longitude', 'code', 'categories', 'status')
+class PlaceSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Place
+        fields = ('id', 'name', 'latitud', 'longitude', 'code', 'categories', 'status', 'image_set', 'link_set')
+        depth = 1
