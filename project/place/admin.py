@@ -15,7 +15,7 @@ class ChoiceImage(admin.StackedInline):
 
 class PlaceAdmin(admin.ModelAdmin):
 	list_display = ('id', 'code', 'name', 'latitud', 'longitude', 'status')
-	search_fields = ['code', 'name']
+	search_fields = ['id', 'code', 'name']
 	inlines = [ChoiceLink, ChoiceImage]
 
 
