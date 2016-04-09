@@ -10,7 +10,7 @@ class CategoryViewSet(viewsets.ModelViewSet):
 
   def get_queryset(self):
     queryset = Category.objects.all()
-    return queryset.order_by('id')
+    return queryset.order_by('position')
 
 class PlaceViewSet(viewsets.ModelViewSet):
   queryset = Place.objects.all()
@@ -18,4 +18,4 @@ class PlaceViewSet(viewsets.ModelViewSet):
 
   def get_queryset(self):
     queryset = Place.objects.all()
-    return queryset.order_by('id')
+    return queryset.order_by('-score')
