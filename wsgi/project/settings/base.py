@@ -118,7 +118,8 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
     ],
-    'TIME_FORMAT': '%I:%M%p'
+    'TIME_FORMAT': '%I:%M%p',
+    'UNICODE_JSON': False
 }
 
 CORS_ORIGIN_ALLOW_ALL = True
