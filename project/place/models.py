@@ -6,6 +6,7 @@ from django.db import models
 class Category(models.Model):
     name = models.CharField(max_length=150)
     plural = models.CharField(max_length=150, default='')
+    position = models.IntegerField(default=0)
 
     def __unicode__(self):
         return "%s" % (self.name)
@@ -18,18 +19,24 @@ class Place(models.Model):
         (4, 'DISABLED'),
     )
     name = models.CharField(max_length=120)
-    latitud = models.CharField(max_length=120)
+    latitude = models.CharField(max_length=120)
     longitude = models.CharField(max_length=120)
-    categories = models.ManyToManyField(Category)
     category = models.ForeignKey(Category, related_name='belong_to_category', blank=True, null=True)
     status = models.IntegerField(choices=STATUS_CHOICES, default=1, blank=True, null=True)
     is_verified = models.IntegerField(default=0)
     has_good_image = models.IntegerField(default=0)
     weight = models.IntegerField(default=0)
     is_paying = models.IntegerField(default=0)
+    has_links = models.IntegerField(default=0)
+    score = models.IntegerField(default=0)
 
     def __unicode__(self):
 		return "%s" % (self.name)
+
+    def save(self, *args, **kwargs):
+        score = round((self.is_verified + self.has_good_image + self.weight + self.is_paying + (self.has_links / 3.0)) / 5.0, 2) * 100
+        self.score = score
+        super(Place, self).save(*args, **kwargs)
 
 class Image(models.Model):
     TYPE_CHOICES = (
