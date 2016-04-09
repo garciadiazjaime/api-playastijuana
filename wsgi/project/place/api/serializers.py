@@ -6,10 +6,10 @@ from ..models import Category, Place
 class CategorySerializer(serializers.HyperlinkedModelSerializer):
   class Meta:
     model = Category
-    fields = ('id', 'name')
+    fields = ('id', 'name', 'plural', 'position')
 
 class PlaceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Place
-        fields = ('id', 'name', 'latitud', 'longitude', 'code', 'categories', 'status', 'image_set', 'link_set')
+        fields = ('id', 'name', 'latitude', 'longitude', 'category', 'status', 'image_set', 'link_set', 'score')
         depth = 1
