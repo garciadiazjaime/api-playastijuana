@@ -1,0 +1,22 @@
+{
+  "name": "api-playastijuana",
+  "version": "1.0.0",
+  "description": "Playas de Tijuana API ====",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/garciadiazjaime/api-playastijuana.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/garciadiazjaime/api-playastijuana/issues"
+  },
+  "homepage": "https://github.com/garciadiazjaime/api-playastijuana#readme",
+  "dependencies": {
+    "request": "^2.72.0"
+  }
+}
